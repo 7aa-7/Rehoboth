@@ -3,3 +3,19 @@
 	color: #577ad4;
 	font-weight: normal;
 }
+
+.container {
+  display: grid;
+  grid-template-rows: 1fr 10fr;
+  padding: 5px;
+  gap: 5px;
+  background-color: #6ecc92;
+}
+
+.container div {
+  background-color: #ffffff;
+}
+
+.main {
+  text-align: center;
+}
