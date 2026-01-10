@@ -8,7 +8,7 @@ playerForm.addEventListener("submit", function (event) {
   
   const player = playerFormData.get("player_name")
 
-  if (player == "logan")
+  if (player == "Logan")
   {
 	  window.location.href = "https://7aa-7.github.io/Rehoboth/Logan.html"
   }
