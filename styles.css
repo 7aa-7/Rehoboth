@@ -1,3 +1,5 @@
-.tinyText h1 {
-	font-size: 5px;
+.tinyText {
+	font-size: 12px;
+	color: #577ad4;
+	font-weight: normal;
 }
