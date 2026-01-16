@@ -43,8 +43,8 @@ async function loadScores() {
 		return;
 	}
 
-	katieEl.textContent = data[0].score;
-	davidEl.textContent = data[1].score;
+	katieEl.textContent = data[1].score;
+	davidEl.textContent = data[0].score;
 }
 
 window.updateScore = async function (playerName, change)
