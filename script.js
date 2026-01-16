@@ -36,7 +36,7 @@ async function loadScores() {
 	const { data, error } = await supabase
 		.from('scores')
 		.select('*')
-		.order('id');
+		.order('player_name');
 
 	if (error) {
 		console.error(error);
@@ -47,12 +47,12 @@ async function loadScores() {
 	davidEl.textContent = data[1].score;
 }
 
-window.updateScore = async function (id, change)
+window.updateScore = async function (playerName, change)
 {
 	const { data, error } = await supabase
 		.from('scores')
 		.select('score')
-		.eq('id', id)
+		.eq('player_name', playerName)
 		.single();
 		
 
@@ -67,7 +67,7 @@ window.updateScore = async function (id, change)
 	const { error: updateError} = await supabase
 		.from('scores')
 		.update({ score: newScore })
-		.eq('id', id);
+		.eq('player_name', playerName);
 
 	if (updateError) console.error(updateError);
 }
