@@ -10,6 +10,6 @@ playerForm.addEventListener("submit", function (event) {
 
   if (player == "Logan")
   {
-	  window.location.href = "https://7aa-7.github.io/Rehoboth/Logan.html"
+	  window.location.href = "Logan.html"
   }
 })
