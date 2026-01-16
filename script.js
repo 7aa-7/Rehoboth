@@ -47,7 +47,7 @@ async function loadScores() {
 	davidEl.textContent = data[1].score;
 }
 
-async function updateScore(id, change)
+window.updateScore = async function (id, change)
 {
 	const { data, error } = await supabase
 		.from('scores')
