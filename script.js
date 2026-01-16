@@ -1,5 +1,7 @@
 const playerForm = document.getElementById("playerNameForm");
 
+if (playerForm) {
+
 playerForm.addEventListener("submit", function (event) {
   event.preventDefault();
   
@@ -13,6 +15,7 @@ playerForm.addEventListener("submit", function (event) {
 	  window.location.href = "Logan.html";
   }
 });
+}
 
 //Supabase
 import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
