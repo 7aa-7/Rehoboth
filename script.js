@@ -10,13 +10,78 @@ playerForm.addEventListener("submit", function (event) {
 
   if (player == "Logan")
   {
-	  window.location.href = "Logan.html"
+	  window.location.href = "Logan.html";
   }
-})
+});
 
 //Supabase
+import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
 
-const subabase = createClient(
-	'https://fautgukxaxrqsvyibasy.supabase.co'
+const supabase = createClient(
+	'https://fautgukxaxrqsvyibasy.supabase.co',
 	'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZhdXRndWt4YXhycXN2eWliYXN5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njg0MzIwNzIsImV4cCI6MjA4NDAwODA3Mn0.59ZslvggYCgsBHoCB05KQNZSCB8DkjCgGpH4DY1LU2A'
-)
+);
+
+async function loadScores() {
+
+	const katieEl = document.getElementById('KatieScore')
+	const davidEl = document.getElementById('DavidScore')
+
+
+	if (!katieEl || !davidEl) return;
+
+	const { data, error } = await supabase
+		.from('scores')
+		.select('*')
+		.order('id');
+
+	if (error) {
+		console.error(error);
+		return;
+	}
+
+	katieEl.textContent = data[0].score;
+	davidEl.textContent = data[1].score;
+}
+
+async function updateScore(id, change)
+{
+	const { data, error } = await supabase
+		.from('scores')
+		.select('score')
+		.eq('id', id)
+		.single();
+		
+
+	if (error)
+	{
+		console.error(error)
+		return;
+	}
+
+	const newScore = data.score + change;
+
+	const { error: updateError} = await supabase
+		.from('scores')
+		.update({ score: newScore })
+		.eq('id', id);
+
+	if (updateError) console.error(updateError);
+}
+
+
+
+const katieEl = document.getElementById('KatieScore')
+
+if (katieEl) {
+supabase
+	.channel('scores-live')
+	.on(
+		'postgres_changes',
+		{ event: 'UPDATE', schema: 'public', table: 'scores' },
+		loadScores
+	)
+	.subscribe()
+
+loadScores();
+}
