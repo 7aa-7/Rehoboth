@@ -6,7 +6,7 @@
 
 .container {
   display: grid;
-  grid-template-rows: 1fr 15fr;
+  grid-template-rows: 1fr 16fr;
   padding: 5px;
   gap: 5px;
   background-color: #6ecc92;
