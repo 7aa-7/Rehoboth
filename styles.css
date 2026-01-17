@@ -19,4 +19,30 @@
 
 .main {
   text-align: center;
+  font-size: 3vh;
+}
+
+.main input[type="submit"] {
+ width: 15vh;
+ height: 6vh;
+ font-size: 3vh;
+ font-family: Ditot;
+ color: #0b6343;
+ background-color: #b0ffc6;
+ border-radius: 100px;
+}
+
+.main input[type="submit"]:hover {
+  background-color: #8bc7ae;
+}
+
+.main input[type="radio"] {
+  width: 2vh;
+  height: 2vh;
+  accent-color: #147530;
+}
+
+.main input[type="radio"]:checked {
+
+
 }
