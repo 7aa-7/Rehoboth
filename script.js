@@ -20,6 +20,11 @@ playerForm.addEventListener("submit", function (event) {
 	  window.location.href = "Katie.html"
   }
 
+  else if (player == "David")
+  {
+	  window.location.href = "David.html"
+  }
+
 });
 }
 
