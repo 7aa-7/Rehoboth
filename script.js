@@ -1,3 +1,18 @@
+//Getting the day
+
+const currentTime = new Date();
+const currentDate = currentTime.toLocaleDateString();
+
+const dateTest = document.getElementById("dateTest");
+dateTest.innerText = currentDate;
+
+function loadDavid()
+{
+  alarm('Hello!');
+}
+
+//Player Form
+
 const playerForm = document.getElementById("playerNameForm");
 
 if (playerForm) {
@@ -98,4 +113,7 @@ supabase
 	.subscribe()
 
 loadScores();
+
 }
+
+
