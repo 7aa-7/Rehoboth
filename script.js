@@ -6,9 +6,9 @@ const currentDate = currentTime.toLocaleDateString();
 const dateTest = document.getElementById("dateTest");
 dateTest.innerText = currentDate;
 
-function loadDavid()
+window.loadDavid = function()
 {
-  alarm('Hello!');
+  alert('Hello!');
 }
 
 //Player Form
